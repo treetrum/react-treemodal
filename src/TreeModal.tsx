@@ -4,7 +4,7 @@ interface PropsType {
     isOpen: boolean;
     children: React.ReactChild;
     onClose: () => void;
-    test: string;
+    overlayColor?: string;
 }
 
 const createStyles = (obj: React.CSSProperties): React.CSSProperties => obj;
@@ -77,6 +77,12 @@ const TreeModal: React.FC<PropsType> = (props) => {
 
     let joinedOuterStyles = outerStyles;
     let joinedInnerStyles = innerStyles;
+    if (props.overlayColor) {
+        joinedOuterStyles = {
+            ...joinedOuterStyles,
+            ...{ backgroundColor: props.overlayColor },
+        };
+    }
     if (props.isOpen) {
         joinedOuterStyles = { ...outerStyles, ...outerActiveStyles };
         joinedInnerStyles = { ...innerStyles, ...innerActiveStyles };
