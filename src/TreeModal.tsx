@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import TreeModalPortal from "./TreeModalPortal";
 interface PropsType {
     isOpen: boolean;
     children: React.ReactChild;
@@ -89,11 +90,16 @@ const TreeModal: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <div className={classes.join(" ")} style={joinedOuterStyles}>
-            <div className="react-treemodal__inner" style={joinedInnerStyles}>
-                {props.children}
+        <TreeModalPortal>
+            <div className={classes.join(" ")} style={joinedOuterStyles}>
+                <div
+                    className="react-treemodal__inner"
+                    style={joinedInnerStyles}
+                >
+                    {props.children}
+                </div>
             </div>
-        </div>
+        </TreeModalPortal>
     );
 };
 
