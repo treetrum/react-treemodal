@@ -53,7 +53,7 @@ const TreeModal: React.FC<PropsType> = (props) => {
         };
         const handleWindowClick = (event: MouseEvent) => {
             if (event.target instanceof HTMLElement) {
-                if (!event.target.matches(".modal__inner *")) {
+                if (!event.target.matches(".react-treemodal__inner *")) {
                     props.onClose();
                 }
             }
@@ -84,7 +84,9 @@ const TreeModal: React.FC<PropsType> = (props) => {
 
     return (
         <div className={classes.join(" ")} style={joinedOuterStyles}>
-            <div style={joinedInnerStyles}>{props.children}</div>
+            <div className="react-treemodal__inner" style={joinedInnerStyles}>
+                {props.children}
+            </div>
         </div>
     );
 };
