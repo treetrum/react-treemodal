@@ -84,8 +84,8 @@ const TreeModal: React.FC<PropsType> = (props) => {
         };
     }
     if (props.isOpen) {
-        joinedOuterStyles = { ...outerStyles, ...outerActiveStyles };
-        joinedInnerStyles = { ...innerStyles, ...innerActiveStyles };
+        joinedOuterStyles = { ...joinedOuterStyles, ...outerActiveStyles };
+        joinedInnerStyles = { ...joinedInnerStyles, ...innerActiveStyles };
     }
 
     return (
