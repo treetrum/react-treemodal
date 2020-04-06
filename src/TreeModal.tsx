@@ -22,13 +22,13 @@ const outerStyles = createStyles({
     overflowY: "scroll",
     visibility: "hidden",
     opacity: 0,
-    transition: "350ms ease all",
-    zIndex: 1000
+    transition: "350ms ease opacity, 350ms ease visibility",
+    zIndex: 1000,
 });
 
 const outerActiveStyles = createStyles({
     visibility: "visible",
-    opacity: 1
+    opacity: 1,
 });
 
 const innerStyles = createStyles({
@@ -36,15 +36,15 @@ const innerStyles = createStyles({
     padding: 30,
     transform: "translateY(20px)",
     transition: "350ms ease all",
-    opacity: 0
+    opacity: 0,
 });
 
 const innerActiveStyles = createStyles({
     opacity: 1,
-    transform: "translateY(0)"
+    transform: "translateY(0)",
 });
 
-const TreeModal: React.FC<PropsType> = props => {
+const TreeModal: React.FC<PropsType> = (props) => {
     React.useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
